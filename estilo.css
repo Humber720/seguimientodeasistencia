@@ -8,7 +8,7 @@
 
 /* BODY */
 body {
-  background: #f4f7f9;
+  background: #f0f4f8;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -21,32 +21,34 @@ body {
   background: #ffffff;
   padding: 25px 30px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
+  transition: all 0.3s;
 }
 
 /* CABECERA */
 .header-container {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .ue-title {
   color: #1a73e8;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .seguimiento-title {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #333333;
   margin-bottom: 5px;
 }
 
 .grade {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 5px;
 }
 
@@ -59,44 +61,60 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
+/* FLEX-GROUP MEJORADO */
 .flex-group {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* siempre en fila */
+  justify-content: space-between;
+  overflow-x: auto; /* permite scroll horizontal en móviles pequeños */
+  padding-bottom: 5px;
 }
 
+.flex-group::-webkit-scrollbar {
+  height: 6px;
+}
+
+.flex-group::-webkit-scrollbar-thumb {
+  background: #1a73e8;
+  border-radius: 3px;
+}
+
+/* CAMPOS */
 .campo {
-  flex: 1 1 30%;
+  flex: 1 0 30%;
   display: flex;
   flex-direction: column;
+  min-width: 80px; /* para móviles muy pequeños */
 }
 
 label {
   font-weight: 600;
   margin-bottom: 5px;
   color: #444444;
+  text-align: center;
 }
 
 input[type="number"],
 select {
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid #cccccc;
   font-size: 1rem;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 input[type="number"]:focus,
 select:focus {
   border-color: #1a73e8;
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.4);
   outline: none;
-  box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
 }
 
-/* CENTRAR LABELS DE NÚMEROS */
+/* CENTRAR LABELS Y CAMPOS NUMÉRICOS */
 form > label,
 form > input[type="number"] {
   display: block;
@@ -110,23 +128,24 @@ form > input[type="number"] {
   color: #006064;
   font-weight: bold;
   text-align: center;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 12px;
   margin-top: 10px;
+  transition: all 0.3s;
 }
 
 /* BOTONES */
 button.btn-registrar,
 .modal-buttons button {
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 12px 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #1a73e8;
   color: #ffffff;
   font-weight: bold;
   font-size: 1rem;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s;
 }
 
 button.btn-registrar:hover,
@@ -141,7 +160,7 @@ button.btn-registrar:hover,
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: none;
   justify-content: center;
   align-items: center;
@@ -151,78 +170,44 @@ button.btn-registrar:hover,
 
 .modal-content {
   background: #ffffff;
-  padding: 25px 30px;
-  border-radius: 15px;
+  padding: 30px 35px;
+  border-radius: 20px;
   text-align: center;
   width: 90%;
-  max-width: 400px;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transform: translateY(0);
+  transition: all 0.3s;
 }
 
 .modal-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 480px) {
-  .flex-group {
-    flex-direction: column;
-  }
-
-  .campo {
-    flex: 1 1 100%;
-  }
-
   .ue-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
-  .seguimiento-title, .grade {
+  .seguimiento-title,
+  .grade {
     font-size: 1.1rem;
   }
 
   .advisor {
     font-size: 0.9rem;
   }
-}
-/* MODAL */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* aseguramos que ocupe toda la altura de la ventana */
-  display: flex;
-  justify-content: center; /* centrar horizontal */
-  align-items: center;     /* centrar vertical */
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
 
-/* MODAL CONTENT */
-.modal-content {
-  background: #ffffff;
-  padding: 25px 30px;
-  border-radius: 15px;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transform: translateY(0); /* evita cualquier desplazamiento previo */
-}
-/* PARA QUE ESTE EN UNA FILA DIA, MES, */
-.flex-group {
-  display: flex;
-  gap: 10px;
-  flex-wrap: nowrap; /* evita que los elementos se vayan a otra línea */
-  justify-content: space-between; /* distribuye uniformemente */
-}
+  /* los campos siguen en fila con scroll horizontal */
+  .flex-group {
+    gap: 8px;
+  }
 
-.campo {
-  flex: 1 1 0; /* cada campo ocupa el mismo espacio */
-  display: flex;
-  flex-direction: column;
+  .campo {
+    min-width: 90px;
+  }
 }
-
