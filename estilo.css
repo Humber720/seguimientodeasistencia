@@ -1,3 +1,4 @@
+/* Body */
 body {
   font-family: Arial, sans-serif;
   background: #f4f6f9;
@@ -6,63 +7,115 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 15px;
+  transition: background 0.3s;
 }
 
+/* Contenedor del formulario */
 .form-container {
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
+  transition: transform 0.3s;
 }
 
-h2 {
+.form-container:hover {
+  transform: translateY(-3px);
+}
+
+/* Encabezado */
+.header-container {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.5;
 }
 
+.ue-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.seguimiento-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.grade {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 6px;
+}
+
+.advisor {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #555;
+  font-style: italic;
+}
+
+/* Labels */
 label {
   font-weight: bold;
   display: block;
   margin-top: 12px;
 }
 
+/* Inputs y selects */
 input, select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
   background: #fdfdfd;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+input:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+/* Flex group */
 .flex-group {
   display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
 .campo {
   flex: 1;
+  min-width: 120px;
 }
 
+/* Botón */
 button {
-  padding: 12px;
-  font-size: 15px;
+  padding: 14px;
+  font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
+/* Botón registrar */
 .btn-registrar {
   background: #28a745;
   color: #fff;
@@ -70,11 +123,16 @@ button:hover {
   margin-top: 18px;
 }
 
+.btn-registrar:hover {
+  background: #218838;
+}
+
+/* Resultado */
 .resultado {
   margin-top: 15px;
   font-weight: bold;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #444;
 }
 
@@ -94,25 +152,26 @@ button:hover {
 .modal-content {
   background-color: #fff;
   margin: 15% auto;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 25px;
+  border-radius: 14px;
   width: 90%;
-  max-width: 400px;
+  max-width: 420px;
   text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 .modal-buttons {
   margin-top: 15px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
 }
 
 .modal-buttons button {
   flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
 }
 
 #btnDescargar {
@@ -126,53 +185,83 @@ button:hover {
 }
 
 /* RESPONSIVE */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .flex-group {
     flex-direction: column;
   }
   .modal-buttons {
     flex-direction: column;
   }
+  .form-container {
+    padding: 20px;
+  }
+  .ue-title {
+    font-size: 1.6rem;
+  }
+  .seguimiento-title {
+    font-size: 1.4rem;
+  }
+  .grade {
+    font-size: 1.2rem;
+  }
+  .advisor {
+    font-size: 1rem;
+  }
+}
+/* Aseguramos que todos los campos tengan el mismo tamaño */
+input[type="number"], select {
+  width: 100%;        /* Ocupa todo el ancho del contenedor */
+  max-width: 150px;   /* Limita tamaño máximo */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+/* Todos los inputs y selects uniformes */
+input[type="number"], select {
+  width: 100%;           /* Ocupa todo el ancho del contenedor */
+  max-width: 200px;      /* Tamaño máximo cómodo */
+  padding: 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  text-align: center;    /* Centrado del número */
 }
 
-
-
-
-
-
-
-.header-container {
-  text-align: center;
-  margin-bottom: 25px;
-  line-height: 1.4; /* Ajusta el interlineado general */
+/* Contenedores flexibles */
+.flex-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  justify-content: center; /* Centra los campos en el contenedor */
+  flex-wrap: wrap;
 }
 
-.ue-title {
-  font-size: 1.8rem;       /* Tamaño principal */
-  font-weight: 700;         /* Negrita */
-  color: #1a1a1a;           /* Color oscuro */
-  margin-bottom: 8px;
-  letter-spacing: 1px;      /* Espaciado entre letras */
+/* Cada campo del formulario */
+.campo {
+  flex: 1;
+  min-width: 150px;      /* Ancho mínimo */
+  max-width: 200px;      /* Ancho máximo */
 }
 
-.seguimiento-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 6px;
+/* Campos de Presentes, Licencias y Faltas */
+#presentes, #licencia, #faltas {
+  width: 100%;
+  max-width: 200px;      /* Igual tamaño para los 3 */
+  margin: 10px auto;     /* Centrado y espacio */
+  display: block;
 }
 
-.grade {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #34495e;
-  margin-bottom: 4px;
-}
+/* Responsivo */
+@media (max-width: 600px) {
+  .flex-group {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.advisor {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #555;
-  font-style: italic;
+  #presentes, #licencia, #faltas {
+    max-width: 100%;      /* Ocupa todo el ancho en celular */
+  }
 }
-
