@@ -187,3 +187,42 @@ button.btn-registrar:hover,
     font-size: 0.9rem;
   }
 }
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* aseguramos que ocupe toda la altura de la ventana */
+  display: flex;
+  justify-content: center; /* centrar horizontal */
+  align-items: center;     /* centrar vertical */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* MODAL CONTENT */
+.modal-content {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(0); /* evita cualquier desplazamiento previo */
+}
+/* PARA QUE ESTE EN UNA FILA DIA, MES, */
+.flex-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap; /* evita que los elementos se vayan a otra línea */
+  justify-content: space-between; /* distribuye uniformemente */
+}
+
+.campo {
+  flex: 1 1 0; /* cada campo ocupa el mismo espacio */
+  display: flex;
+  flex-direction: column;
+}
+
