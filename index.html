@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Seguimiento de Asistencia - 2do Secundaria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <div class="form-container">
+    <div class="header-container">
+      <h2 class="ue-title">UNIDAD EDUCATIVA T.H.P. "JUPAPINA"</h2>
+      <h3 class="seguimiento-title">📊 SEGUIMIENTO DE ASISTENCIAS</h3>
+      <h2 class="grade">Segundo de Secundaria</h2>
+      <h4 class="advisor">Asesor: Prof. Humberto Yupanqui C.</h4>
+    </div>    
+    <form id="seguimientoForm">
+
+      <!-- Día + Fecha + Mes -->
+      <div class="flex-group">
+        <div class="campo">
+          <label for="dia">Día:</label>
+          <select id="dia" required>
+            <option value="">Seleccione...</option>
+            <option>Lunes</option>
+            <option>Martes</option>
+            <option>Miércoles</option>
+            <option>Jueves</option>
+            <option>Viernes</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="fechaNum">Fecha:</label>
+          <input type="number" id="fechaNum" min="1" max="31" placeholder="Ej: 12" required>
+        </div>
+
+        <div class="campo">
+          <label for="mes">Mes:</label>
+          <select id="mes" required>
+            <option value="">Seleccione...</option>
+            <option>Agosto</option>
+            <option>Septiembre</option>
+            <option>Octubre</option>
+            <option>Noviembre</option>
+            <option>Diciembre</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Datos numéricos -->
+      <label for="presentes">Nro. de estudiantes presentes:</label>
+      <input type="number" id="presentes" min="0" value="0" required>
+
+      <label for="licencia">Nro. de estudiantes con licencias:</label>
+      <input type="number" id="licencia" min="0" value="0" required>
+
+      <label for="faltas">Nro. de estudiantes con faltas:</label>
+      <input type="number" id="faltas" min="0" value="0" required>
+
+      <div class="resultado" id="resultado">Total Estudiantes: 0</div>
+
+      <button type="submit" class="btn-registrar">Registrar</button>
+    </form>
+  </div>
+
+  <!-- Modal de éxito -->
+  <div id="modalExito" class="modal">
+    <div class="modal-content">
+      <h3>✅ Registro exitoso</h3>
+      <p>Se registró correctamente el seguimiento de estudiantes.</p>
+      <div class="modal-buttons">
+        <button id="btnDescargar">📄 Descargar PDF</button>
+        <button id="btnCerrar">❌ Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <script src="seguimiento.js"></script>
+</body>
+</html>
