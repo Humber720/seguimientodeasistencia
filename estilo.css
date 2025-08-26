@@ -1,267 +1,189 @@
-/* Body */
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* BODY */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
+  background: #f4f7f9;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 15px;
-  transition: background 0.3s;
+  padding: 20px;
 }
 
-/* Contenedor del formulario */
+/* CONTENEDOR DEL FORMULARIO */
 .form-container {
-  background: #fff;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 480px;
-  transition: transform 0.3s;
+  max-width: 500px;
 }
 
-.form-container:hover {
-  transform: translateY(-3px);
-}
-
-/* Encabezado */
+/* CABECERA */
 .header-container {
   text-align: center;
-  margin-bottom: 25px;
-  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .ue-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  color: #1a73e8;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .seguimiento-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #333333;
+  margin-bottom: 5px;
 }
 
 .grade {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #34495e;
-  margin-bottom: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .advisor {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #555;
-  font-style: italic;
+  font-size: 1rem;
+  color: #666666;
 }
 
-/* Labels */
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 12px;
+/* FORMULARIO */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Inputs y selects */
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  border: 1.5px solid #ccc;
-  border-radius: 10px;
-  font-size: 16px;
-  background: #fdfdfd;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input:focus, select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0,123,255,0.3);
-  outline: none;
-}
-
-/* Flex group */
 .flex-group {
   display: flex;
   gap: 10px;
-  margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .campo {
-  flex: 1;
-  min-width: 120px;
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Botón */
-button {
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #444444;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+input[type="number"],
+select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  font-size: 1rem;
+  transition: all 0.2s;
 }
 
-/* Botón registrar */
-.btn-registrar {
-  background: #28a745;
-  color: #fff;
+input[type="number"]:focus,
+select:focus {
+  border-color: #1a73e8;
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+}
+
+/* CENTRAR LABELS DE NÚMEROS */
+form > label,
+form > input[type="number"] {
+  display: block;
   width: 100%;
-  margin-top: 18px;
+  text-align: center;
 }
 
-.btn-registrar:hover {
-  background: #218838;
-}
-
-/* Resultado */
+/* RESULTADO */
 .resultado {
-  margin-top: 15px;
+  background: #e0f7fa;
+  color: #006064;
   font-weight: bold;
   text-align: center;
-  font-size: 1.15rem;
-  color: #444;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-/* Modal */
+/* BOTONES */
+button.btn-registrar,
+.modal-buttons button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1a73e8;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button.btn-registrar:hover,
+.modal-buttons button:hover {
+  background-color: #155ab6;
+  transform: scale(1.05);
+}
+
+/* MODAL */
 .modal {
-  display: none;
   position: fixed;
-  z-index: 100;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 25px;
-  border-radius: 14px;
-  width: 90%;
-  max-width: 420px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 400px;
 }
 
 .modal-buttons {
-  margin-top: 15px;
   display: flex;
-  gap: 12px;
   justify-content: center;
-}
-
-.modal-buttons button {
-  flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-#btnDescargar {
-  background: #007bff;
-  color: #fff;
-}
-
-#btnCerrar {
-  background: #dc3545;
-  color: #fff;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .flex-group {
     flex-direction: column;
   }
-  .modal-buttons {
-    flex-direction: column;
+
+  .campo {
+    flex: 1 1 100%;
   }
-  .form-container {
-    padding: 20px;
-  }
+
   .ue-title {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
-  .seguimiento-title {
-    font-size: 1.4rem;
+
+  .seguimiento-title, .grade {
+    font-size: 1.1rem;
   }
-  .grade {
-    font-size: 1.2rem;
-  }
+
   .advisor {
-    font-size: 1rem;
-  }
-}
-/* Aseguramos que todos los campos tengan el mismo tamaño */
-input[type="number"], select {
-  width: 100%;        /* Ocupa todo el ancho del contenedor */
-  max-width: 150px;   /* Limita tamaño máximo */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  box-sizing: border-box;
-}
-/* Todos los inputs y selects uniformes */
-input[type="number"], select {
-  width: 100%;           /* Ocupa todo el ancho del contenedor */
-  max-width: 200px;      /* Tamaño máximo cómodo */
-  padding: 12px;
-  border: 1.5px solid #ccc;
-  border-radius: 10px;
-  font-size: 16px;
-  box-sizing: border-box;
-  text-align: center;    /* Centrado del número */
-}
-
-/* Contenedores flexibles */
-.flex-group {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
-  justify-content: center; /* Centra los campos en el contenedor */
-  flex-wrap: wrap;
-}
-
-/* Cada campo del formulario */
-.campo {
-  flex: 1;
-  min-width: 150px;      /* Ancho mínimo */
-  max-width: 200px;      /* Ancho máximo */
-}
-
-/* Campos de Presentes, Licencias y Faltas */
-#presentes, #licencia, #faltas {
-  width: 100%;
-  max-width: 200px;      /* Igual tamaño para los 3 */
-  margin: 10px auto;     /* Centrado y espacio */
-  display: block;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .flex-group {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #presentes, #licencia, #faltas {
-    max-width: 100%;      /* Ocupa todo el ancho en celular */
+    font-size: 0.9rem;
   }
 }
