@@ -1,4 +1,4 @@
-const urlSheetBest = "https://api.sheetbest.com/sheets/37bdc2e1-0681-4e7a-a9d1-94617d7acfe6";
+const urlSheetBest = "https://api.sheetbest.com/sheets/f2d3ddfd-5e35-4781-9eb1-80c1aca77502";
 
 const form = document.getElementById('seguimientoForm');
 const presentes = document.getElementById('presentes');
@@ -83,3 +83,4 @@ btnDescargar.addEventListener('click', () => {
 
   doc.save("seguimiento_estudiantes.pdf");
 });
+
