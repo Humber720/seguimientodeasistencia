@@ -3,12 +3,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* BODY */
 body {
-  background: #f0f4f8;
+  background: linear-gradient(135deg, #74b9ff, #a29bfe, #81ecec);
+  background-size: 300% 300%;
+  animation: gradientBG 8s ease infinite;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -16,15 +18,26 @@ body {
   padding: 20px;
 }
 
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* CONTENEDOR DEL FORMULARIO */
 .form-container {
   background: #ffffff;
   padding: 25px 30px;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   width: 100%;
   max-width: 550px;
-  transition: all 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 /* CABECERA */
@@ -35,14 +48,14 @@ body {
 
 .ue-title {
   color: #1a73e8;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .seguimiento-title {
   font-size: 1.3rem;
-  color: #333333;
+  color: #444444;
   margin-bottom: 5px;
 }
 
@@ -50,11 +63,12 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #ff7675;
 }
 
 .advisor {
   font-size: 1rem;
-  color: #666666;
+  color: #636e72;
 }
 
 /* FORMULARIO */
@@ -68,10 +82,11 @@ form {
 .flex-group {
   display: flex;
   gap: 10px;
-  flex-wrap: nowrap; /* siempre en fila */
+  flex-wrap: nowrap;
   justify-content: space-between;
-  overflow-x: auto; /* permite scroll horizontal en móviles pequeños */
+  overflow-x: auto;
   padding-bottom: 5px;
+  scroll-snap-type: x mandatory;
 }
 
 .flex-group::-webkit-scrollbar {
@@ -88,44 +103,38 @@ form {
   flex: 1 0 30%;
   display: flex;
   flex-direction: column;
-  min-width: 80px; /* para móviles muy pequeños */
+  min-width: 85px;
+  scroll-snap-align: start;
 }
 
 label {
   font-weight: 600;
   margin-bottom: 5px;
-  color: #444444;
+  color: #2d3436;
   text-align: center;
 }
 
 input[type="number"],
 select {
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #cccccc;
+  border-radius: 12px;
+  border: 1px solid #dfe6e9;
   font-size: 1rem;
   transition: all 0.3s;
+  text-align: center;
 }
 
 input[type="number"]:focus,
 select:focus {
-  border-color: #1a73e8;
-  box-shadow: 0 0 8px rgba(26, 115, 232, 0.4);
+  border-color: #00cec9;
+  box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
   outline: none;
-}
-
-/* CENTRAR LABELS Y CAMPOS NUMÉRICOS */
-form > label,
-form > input[type="number"] {
-  display: block;
-  width: 100%;
-  text-align: center;
 }
 
 /* RESULTADO */
 .resultado {
-  background: #e0f7fa;
-  color: #006064;
+  background: #dfe6e9;
+  color: #2d3436;
   font-weight: bold;
   text-align: center;
   padding: 12px;
@@ -140,17 +149,18 @@ button.btn-registrar,
   cursor: pointer;
   padding: 12px 18px;
   border: none;
-  border-radius: 10px;
-  background-color: #1a73e8;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0984e3, #6c5ce7);
   color: #ffffff;
   font-weight: bold;
   font-size: 1rem;
   transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 button.btn-registrar:hover,
 .modal-buttons button:hover {
-  background-color: #155ab6;
+  background: linear-gradient(135deg, #6c5ce7, #0984e3);
   transform: scale(1.05);
 }
 
@@ -176,8 +186,12 @@ button.btn-registrar:hover,
   width: 90%;
   max-width: 420px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transform: translateY(0);
-  transition: all 0.3s;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
 }
 
 .modal-buttons {
@@ -188,9 +202,13 @@ button.btn-registrar:hover,
 }
 
 /* RESPONSIVE */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+  }
+
   .ue-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .seguimiento-title,
@@ -201,13 +219,23 @@ button.btn-registrar:hover,
   .advisor {
     font-size: 0.9rem;
   }
+}
 
-  /* los campos siguen en fila con scroll horizontal */
-  .flex-group {
-    gap: 8px;
+@media (max-width: 480px) {
+  .ue-title {
+    font-size: 1.3rem;
+  }
+
+  .seguimiento-title,
+  .grade {
+    font-size: 1rem;
+  }
+
+  .advisor {
+    font-size: 0.85rem;
   }
 
   .campo {
-    min-width: 90px;
+    min-width: 95px;
   }
 }
