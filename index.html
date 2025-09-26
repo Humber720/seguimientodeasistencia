@@ -29,15 +29,47 @@
             <option>Miércoles</option>
             <option>Jueves</option>
             <option>Viernes</option>
-             <option>Sabado</option>
-             <option>Domingo</option>
+            <option>Sabado</option>
           </select>
         </div>
 
         <div class="campo">
           <label for="fechaNum">Fecha:</label>
-          <input type="number" id="fechaNum" min="1" max="31" placeholder="Ej: 12" required>
-        </div>
+          <select id="fechaNum" required>
+            <option value="">Seleccione...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+          </select>
+        </div>        
 
         <div class="campo">
           <label for="mes">Mes:</label>
@@ -64,7 +96,14 @@
 
       <div class="resultado" id="resultado">Total Estudiantes: 0</div>
 
-      <button type="submit" class="btn-registrar">Registrar</button>
+      <!-- Botón de envío con spinner -->
+            <div class="send-container">
+              <center><button type="submit" class="btn-registrar">Registrar y Enviar</button></center>
+              <div id="loading" class="loading" style="display:none;">
+                  <span class="spinner"></span>
+                  <span class="loading-text">⏳ Procesando tu envio...</span>
+              </div>
+            </div>
     </form>
   </div>
 
@@ -82,4 +121,3 @@
   <script src="seguimiento.js"></script>
 </body>
 </html>
-
